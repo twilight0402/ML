@@ -147,6 +147,23 @@ def grabTree(fileName):
     with open(fileName, "rb") as file:
         return pickle.load(file)
 
+
+def lense():
+    with open("dataset/lenses.txt") as file:
+        fileContent = file.readlines()
+
+    dataSet = [example.strip().split("\t") for example in fileContent]
+    labels = ['age', 'prescript', 'astigmatic', 'tearRate']
+    myTree = createTree(dataSet, labels)
+
+    print("计算出的决策树是：", myTree)
+    result = classify(myTree, labels, ['young', 'myope', 'no', 'reduced'])
+    print("预测的结果是：", result)
+
+
+
+
+
 if __name__ == "__main__":
     dataSet, labels = createDataSet()
     # print(calcShannonEnt(dataSet))
@@ -154,7 +171,8 @@ if __name__ == "__main__":
     # print(bestFeature)
     # print(dataSet)
     # print(majorithCnt(['a','a','a','b','b','b','b']))
-    myTree = createTree(dataSet, labels)
-    storeTree(myTree, "tree.dat")
-    myTree = grabTree("tree.dat")
-    print(classify(myTree, labels, [1, 1]))
+    # myTree = createTree(dataSet, labels)
+    # storeTree(myTree, "tree.dat")
+    # myTree = grabTree("tree.dat")
+    # print(classify(myTree, labels, [1, 1]))
+    lense()
