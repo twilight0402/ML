@@ -102,8 +102,9 @@ def createTree(dataSet, labels):
     # 1. 寻找最优特征
     bestFeature = chooseBestFeatureToSplit(dataSet)
     bestFeatureLabel = labels[bestFeature]  # 只是标签，用于建树
-    mytree = {bestFeatureLabel: {}}  # 初始化树
-    del labels[bestFeature]  # subLabels
+    mytree = {bestFeatureLabel: {}}         # 初始化树
+    subLabels = labels[:]                   # 复制该列表，因为labels是引用。避免值被改变
+    del subLabels[bestFeature]                 # subLabels
 
     # 2. 当前最优特征的所有取值，去重
     totalValues = [example[bestFeature] for example in dataSet]
@@ -112,9 +113,27 @@ def createTree(dataSet, labels):
     # 3. 每个value一个分支，确定每个分支的值。因为是递归，所以分支下可能还有分支(字典里可能嵌套字典)，如果该分支已经可以结束，则返回返回classList中的一个(分类结果)
     for value in uniqueValues:
         subDataSet = splitDataSet(dataSet, bestFeature, value)
-        subLabels = labels[:]
         mytree[bestFeatureLabel][value] = createTree(subDataSet, subLabels)
     return mytree
+
+
+def classify(inputTree, featureLabels, testVec):
+    """
+    :param inputTree: 构建好的决策树
+    :param featureLabels: 标签列表，也就是每个分类的属性名
+    :param testVec: 测试数据
+    """
+    firstStr = list(inputTree.keys())[0]            # 其实根元素只有一个
+    secondDict = inputTree[firstStr]                # 第二层
+    featureIndex = featureLabels.index(firstStr)    # 当前属性的下标
+
+    for key in secondDict.keys():
+        if testVec[featureIndex] == key:
+            if type(secondDict[key]).__name__ == "dict":
+                classLabel = classify(secondDict[key], featureLabels, testVec)
+            else:
+                classLabel = secondDict[key]
+    return classLabel
 
 
 if __name__ == "__main__":
@@ -124,4 +143,5 @@ if __name__ == "__main__":
     # print(bestFeature)
     # print(dataSet)
     # print(majorithCnt(['a','a','a','b','b','b','b']))
-    print(createTree(dataSet, labels))
+    myTree = createTree(dataSet, labels)
+    print(classify(myTree, labels, [1, 1]))

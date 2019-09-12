@@ -49,6 +49,7 @@ fun()
 print(fun.var2)
 ```
 
+
 ## 矩阵
 - `eye(n)` ： 创建单位矩阵
 - `empty(shape, dtype = float, order = 'C'/'F')` ： 创建未初始化的数组
@@ -67,6 +68,7 @@ print(fun.var2)
 
 # Tips
 - 列表使用前需初始化，直接给不存在的数组赋值会报错: `data[0] = 1`
+- `dict.keys()[0]`会报错，必须使用`list()`转型 ==> `list(dict.keys())[0]`
 
 
 
