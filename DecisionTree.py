@@ -136,6 +136,17 @@ def classify(inputTree, featureLabels, testVec):
     return classLabel
 
 
+def storeTree(inputTree, fileName):
+    import pickle
+    with open(fileName, "wb") as file:
+        pickle.dump(inputTree, file)
+
+
+def grabTree(fileName):
+    import pickle
+    with open(fileName, "rb") as file:
+        return pickle.load(file)
+
 if __name__ == "__main__":
     dataSet, labels = createDataSet()
     # print(calcShannonEnt(dataSet))
@@ -144,4 +155,6 @@ if __name__ == "__main__":
     # print(dataSet)
     # print(majorithCnt(['a','a','a','b','b','b','b']))
     myTree = createTree(dataSet, labels)
+    storeTree(myTree, "tree.dat")
+    myTree = grabTree("tree.dat")
     print(classify(myTree, labels, [1, 1]))
