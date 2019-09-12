@@ -12,7 +12,6 @@
 - `list.sort(cmp=None, key=None, reverse=False)` : 对列表排序，直接对原列表操作
 
 - `operator`模块提供的`itemgetter`函数用于获取对象的哪些维的数据
-
 ```
 a = [5,8,2,7,21]
 b = operator.itemgetter(0)
@@ -27,7 +26,6 @@ b(a)
 ```
 
 - 使用`reload(KNN)`更新修改的模块
-
 ```
 import importlib
 importlib.reload(KNN)
@@ -38,6 +36,18 @@ importlib.reload(KNN)
 	- `for i in dict` <==> `for i in dict.keys()` ： 按key遍历
 	- `for value in d.values()` ： 按值遍历
 	- `for key,value in d.items()` ： 按键值对遍历
+
+- `函数名.变量名` 用这种方式定义的变量，可以在任意位置访问，但是访问的方式必须是：`函数名.变量名`。直接访问变量名是无效的。当然必须要在函数执行过后，变量才能生效
+```
+def fun():
+    fun.var1 = 1
+    fun.var2 = 2
+    print(fun.var1)
+ #   print(var2)        # 报错
+
+fun()
+print(fun.var2)
+```
 
 ## 矩阵
 - `eye(n)` ： 创建单位矩阵
