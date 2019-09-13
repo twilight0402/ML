@@ -69,6 +69,7 @@ print(fun.var2)
 # Tips
 - 列表使用前需初始化，直接给不存在的数组赋值会报错: `data[0] = 1`
 - `dict.keys()[0]`会报错，必须使用`list()`转型 ==> `list(dict.keys())[0]`
-
+- `np.log(矩阵)` 表示对矩阵中的所有元素计算对数，但是，`math.log(矩阵)`会报错，报错信息如下：
+    > TypeError: only size-1 arrays can be converted to Python scalars
 
 
