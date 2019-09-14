@@ -71,5 +71,11 @@ print(fun.var2)
 - `dict.keys()[0]`会报错，必须使用`list()`转型 ==> `list(dict.keys())[0]`
 - `np.log(矩阵)` 表示对矩阵中的所有元素计算对数，但是，`math.log(矩阵)`会报错，报错信息如下：
     > TypeError: only size-1 arrays can be converted to Python scalars
+- `a = range(1, 26); del a[0]` a是range对象，可以访问，但是不可以删除。可以转型之后再使用 `a = list(range(1, 26))`
+
+
+# TODO
+- python集合运算
+- python正则表达式
 
 
