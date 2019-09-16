@@ -2,7 +2,7 @@
 
 - `a.max(axis=0)` `a.max(axis=1)` `a.argmax(axis=1)` ： 每列的最大值（在行方向找最大值）、每行的最大值（在列方向找对大致）、最大值的坐标 
 - `sum()`求和、`mean()`平均值、`var()` 方差、`std()` 标准差  ： 用法与max类似
-- `np.random.uniform(a,b)` 随机小数
+- `numpy.random.uniform(low=0,high=1,size)` 随机浮点数[low, high)。size可以是整数或者元组。默认是1
 - `np.tile(a,(1,2))`：行上重复1次，列上重复两次。
 
 
