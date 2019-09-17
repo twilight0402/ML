@@ -1,3 +1,11 @@
+---
+title: Git常用命令备忘
+date: 2019-09-17 17:31:30
+tags: Git
+categories: Git
+---
+
+
 # 基本操作
 - `git init` : 初始化
 - `git add  file` : 添加
@@ -305,20 +313,8 @@ $ git log --graph --pretty=oneline --abbrev-commit
 * 1891025 Initial commit
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# 坑
+git的`.gitignore`文件必须在项目push之前就创建。如果已经push过了再创建`.gitignore`就不会生效。。。。win下无法创建空文件名的文件，只能用gitBash的touch命令了
 
 
 # 小结
