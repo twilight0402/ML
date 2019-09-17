@@ -321,15 +321,15 @@ git的`.gitignore`文件必须在项目push之前就创建。如果已经push过
 
 # 小结
 
-- git status : 查看哪些被修改，是否被提交
-- git diff  <filename> : 查看修改了什么内容，工作区和暂存区
-- git diff HEAD -- readme.txt ： 查看工作区和版本库的区别
-- git log [--pretty=oneline] : 看到最近的`commit`记录 [一行显示简化结果]
-- git reflog : 记录每一次状态变化的命令，可以查看到每一次变化的 `commit id`
+- `git status` : 查看哪些被修改，是否被提交
+- `git diff  <filename>` : 查看修改了什么内容，工作区和暂存区
+- `git diff HEAD -- readme.txt `： 查看工作区和版本库的区别
+- `git log [--pretty=oneline]` : 看到最近的`commit`记录 [一行显示简化结果]
+- `git reflog` : 记录每一次状态变化的命令，可以查看到每一次变化的 `commit id`
 
 从版本库恢复到工作区
-- git reset --hard HEAD^ : 回退到上一个版本
-- git reset --hard 7cc923c7c82f59baef45b   : 还原到指定`commit id`指定的版本，`id` 不需要全写
+- `git reset --hard HEAD^` : 回退到上一个版本
+- `git reset --hard 7cc923c7c82f59baef45b`   : 还原到指定`commit id`指定的版本，`id` 不需要全写
 
 <b>
 撤销工作区：
