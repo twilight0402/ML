@@ -314,8 +314,10 @@ $ git log --graph --pretty=oneline --abbrev-commit
 ```
 
 # 坑
-git的`.gitignore`文件必须在项目push之前就创建。如果已经push过了再创建`.gitignore`就不会生效。。。。win下无法创建空文件名的文件，只能用gitBash的touch命令了
+git的`.gitignore`文件必须在项目push之前就创建。如果已经push过了再创建`.gitignore`就不会生效。
+但是！有解决办法！==> 清空本地缓存，再提交就可以生效 `git rm -r --cached .`
 
+另，win下无法创建空文件名的文件，只能用gitBash的touch命令了
 
 # 小结
 
