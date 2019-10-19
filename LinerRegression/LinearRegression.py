@@ -71,3 +71,6 @@ if __name__ == "__main__":
     print(mean_absolute_error(y_test, liner.predict(x_test)), LinerRegression.metrics.mean_absolute_error(y_test, liner.predict(x_test)))
     print(liner.score(x_test, y_test), LinerRegression.metrics.r2_score(y_test, liner.predict(x_test)))
 
+    from sklearn import linear_model
+    ridge = linear_model.Ridge()
+
